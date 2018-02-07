@@ -20,7 +20,7 @@
   - Open your browser and type "localhost:8888" or "127.0.0.1:8888"
   - To stop the app, go to your terminal/command prompt then hit **ctrl + c**
 
-#### Use it after
+#### Use it after config :
   - Open terminal or command prompt
   - Go through **"Personal_finance"** folder
   - Type ```$ node app.js ```
@@ -29,6 +29,7 @@
 
 
 ### Todos :
+  - Make documentation
   - Edit transaction
   - Have to manual refresh transaction list & chart after input expenses/income/delete/edit
   - If delete a transaction. The sum off all transaction (panel) by that date not update
