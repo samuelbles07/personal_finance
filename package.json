@@ -1,0 +1,25 @@
+{
+  "name": "personal_finance",
+  "version": "1.0.0",
+  "description": "A simple personal finance",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "personal",
+    "finance"
+  ],
+  "author": "Samuel Siburian",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "lowdb": "^1.0.0",
+    "shortid": "^2.2.8"
+  },
+  "nodemonConfig": {
+    "ignore": ["db.json", "./Public/*"],
+    "delay": "500"
+  }
+}
