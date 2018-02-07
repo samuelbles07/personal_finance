@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Personal Finance</title>
+  <link rel="icon" href="4-512.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"> -->
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="row">
+    <div id="exTab1" class="col-md-5 left">
+      <ul class="nav nav-pills">
+        <li class="active">
+          <a href="#1a" data-toggle="tab">Transaction List</a>
+        </li>
+        <li>
+          <a href="#2a" data-toggle="tab">Expenses</a>
+        </li>
+        <li>
+          <a href="#3a" data-toggle="tab">Income</a>
+        </li>
+      </ul>
+      </br>
+      <div class="tab-content clearfix">
+
+        <div class="tab-pane active" id="1a">
+          <div class="row">
+            <div class="col-sm-7">
+              <select class="form-control" id="transactionSelect">
+                <option value="" hidden>Choose Month..</option>
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+          </div>
+          </br>
+          <!-- *** LAST WORK *** -->
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="panelList">
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="2a">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputDate1" class="col-sm-2 control-label">Date</label>
+              <div class="col-sm-7">
+                <input type="date" class="form-control" id="inputDate1">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputCategory1" class="col-sm-2 control-label">Category</label>
+              <div class="col-sm-8">
+                <select class="form-control" id="inputCategory1">
+                  <option value="" hidden>-- Select Category --</option>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#addCategoryModal">Add new</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputSpec1" class="col-sm-2 control-label">Specific</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSpec1" list="suggestions">
+                <datalist id="suggestions">
+                </datalist>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAmount1" class="col-sm-2 control-label">Amount</label>
+              <div class="col-sm-5">
+                <input type="number" class="form-control" id="inputAmount1">
+              </div>
+              <div class="col-sm-5">
+                <span id="inputAmount"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputFrom1" class="col-sm-2 control-label">From</label>
+              <div class="col-sm-7">
+                <select class="form-control" id="inputFrom1">
+                  <option value="" hidden>-- Source of money --</option>
+                  <option value="bank">Bank Account</option>
+                  <option value="pocket">Pocket Money</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" id="expButton">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-pane" id="3a">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="col-sm-3"></div>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" id="radIncome" value="bank" checked>Bank
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="optradio" id="radPocket" value="pocket">Pocket Money
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="inputDate2" class="col-sm-2 control-label">Date</label>
+              <div class="col-sm-7">
+                <input type="date" class="form-control" id="inputDate2">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputSpec2" class="col-sm-2 control-label">Specific</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSpec2">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAmount2" class="col-sm-2 control-label">Amount</label>
+              <div class="col-sm-5">
+                <input type="number" class="form-control" id="inputAmount2">
+              </div>
+              <div class="col-sm-5">
+                <span id="inputAmount3"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary" id="incButton">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Reports -->
+    <div class="col-md-7 right">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-complete">
+            <div class="panel-heading">
+              <h3 class="panel-title">Money Report</h3>
+            </div>
+            <div class="panel-body">
+              <div id="crtMoney">
+                <!-- Plotly chart will be drawn inside this DIV -->
+              </div>
+              <div align="center">
+                </br><b>Above chart ordered by month in this year</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-complete">
+            <div class="panel-heading">
+              <h3 class="panel-title">Expenses Report by Category</h3>
+            </div>
+            <div class="panel-body">
+              <div align="center" id="crtCategoryPie">
+                <!-- Plotly chart will be drawn inside this DIV -->
+              </div>
+              <div id="crtCategoryLine">
+                <!-- Plotly chart will be drawn inside this DIV -->
+              </div>
+              <div align="center">
+                </br><b>Two charts above ordered by month in this year.</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-complete">
+            <div class="panel-heading">
+              <h3 class="panel-title">Expenses Report by Specific</h3>
+            </div>
+            <div class="panel-body">
+              <div align="center" id="crtSpecificPie">
+                <!-- Plotly chart will be drawn inside this DIV -->
+              </div>
+              <div id="crtSpecificLine">
+                <!-- Plotly chart will be drawn inside this DIV -->
+              </div>
+              </br>
+              <div align="left">
+                <b>Two charts above ordered by month in this year.</b> </br>
+                <select class="form-control" style="width: 50%;" id="categorySelect2">
+                  <option value="" hidden>Choose category list to show..</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Add new category</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="addCategoryInput">
+                </div>
+                <button type="button" class="btn btn-primary col-md-2" id="catButton">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> -->
+
+    <script src="./custom.js"></script>
+    <script src="./serverReq.js"></script>
+    <script src="./customChart.js"></script>
+    <script src="./customEvent.js"></script>
+    <script src="./main.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        startJS();
+      });
+    </script>
+</body>
+
+</html>

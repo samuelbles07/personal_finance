@@ -1,0 +1,29 @@
+html{
+  height:100%
+}
+body{
+  height:100%;
+  padding : 10px ;
+}
+
+.left{
+  height : 100%;
+}
+
+.right{
+  padding-left: 3%;
+  padding-right: 3%;
+  height : 100%;
+  border-left: 1px solid hsla(200, 10%, 50%, 0.2);
+  border-width: 1px;
+}
+
+#exTab1 .tab-content {
+  color : black;
+  padding : 5px 15px;
+}
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
