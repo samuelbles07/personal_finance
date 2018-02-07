@@ -74,7 +74,8 @@ module.exports = {
 					category: data.category,
 					specific: data.specific,
 					amount: amount,
-					from: data.from
+					from: data.from,
+					note: data.note
 				})
 				.write().id
 

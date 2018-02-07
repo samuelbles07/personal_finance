@@ -38,7 +38,7 @@ function startEvent() {
 							"' style=\"padding:0; line-height:0;\" class=\"btn btn-link " + newData[prop].id + "\" name='edit'><span class=\"glyphicon glyphicon-pencil\"></span></button><button type=\"button\" id='" +
 							newData[prop].id +
 							"' style=\"padding:0; line-height:0;\" class=\"btn btn-link " + newData[prop].id +
-							"\" name='delete'><span class=\"glyphicon glyphicon-remove\"></span></button></div></div></div><div class=\"row\"><div class=\"col-sm-8\"><h5>" + newData[prop].from + "</h5></div><div class=\"col-sm-4\"><div class=\"text-right\"><h5>Rp -" + currencyFormat(parseInt(newData[prop].amount)) + "</h5></div></div></div></div>";
+							"\" name='delete'><span class=\"glyphicon glyphicon-remove\"></span></button></div></div></div><div class=\"row\"><div class=\"col-sm-8\"><h5>" + newData[prop].from + " &emsp;-&emsp; <i><font color=\"#adafb2\">" + newData[prop].note + "</font></i></h5></div><div class=\"col-sm-4\"><div class=\"text-right\"><h5>Rp -" + currencyFormat(parseInt(newData[prop].amount)) + "</h5></div></div></div></div>";
 					} else {
 						var _from = "Bank Account";
 						if (newData[prop].specific === '-') _from = "Pocket Money"
@@ -142,6 +142,7 @@ function startEvent() {
 		var spcv = $("#inputSpec1").val();
 		var amov = $("#inputAmount1").val();
 		var frmv = $("#inputFrom1").val();
+		var notv = $("#inputNote").val();
 
 		if (ctv === "" || spcv === "" || amov === "" || frmv === "") {
 			alert("Please fill all input form");
@@ -152,7 +153,8 @@ function startEvent() {
 				category: ctv,
 				specific: spcv,
 				amount: amov,
-				from: frmv
+				from: frmv,
+				note: notv
 			}
 			reqToServ("transaction", "POST", data, function(result) {
 				alert(result.status);
@@ -160,6 +162,7 @@ function startEvent() {
 				$("#inputSpec1").val("");
 				$("#inputAmount1").val("");
 				$("#inputFrom1").val("");
+				$("#inputNote").val("");
 				$("#suggestions").empty();
 			})
 		}
