@@ -17,7 +17,8 @@
   - Type ```$ npm install ``` and wait
   - Type ```$ node app.js ```
   - Then type node app.js
-  - Open your browser and type "localhost:8888" or "127.0.0.1:8888"
+  - Open Google chrome(Just this browser work best for this time)
+  - type "localhost:8888" or "127.0.0.1:8888"
   - To stop the app, go to your terminal/command prompt then hit **ctrl + c**
 
 #### Use it after config :
