@@ -1,3 +1,4 @@
+// Get current date function
 var currentDate = function(done) {
 	var now = new Date();
 
@@ -6,9 +7,9 @@ var currentDate = function(done) {
 
 	var today = now.getFullYear() + "-" + (month) + "-" + (day);
 	done(today);
-	// $('#inputDate1').val(today);
 }
 
+// change the currenct format view
 var currencyFormat = function(bilangan) {
 	var minus = false;
 	if (bilangan < 0) {
@@ -30,6 +31,7 @@ var currencyFormat = function(bilangan) {
 	return rupiah;
 }
 
+// stake a new object by date
 var filterByDate = function(data) {
 	var returnData = {
 		1: {
@@ -161,7 +163,6 @@ var filterByDate = function(data) {
 		var days = data.income[prop].date;
 		var nw = days.split('-');
 		var xxx = nw[2].slice(1);
-		// console.log(xxx);
 		returnData[xxx].dt.push(data.income[prop]);
 		returnData[xxx].sum += data.income[prop].amount;
 	}
@@ -169,7 +170,6 @@ var filterByDate = function(data) {
 		var days = data.expenses[prop].date;
 		var nw = days.split('-');
 		var xxx = nw[2].slice(1);
-		// console.log(xxx);
 		returnData[xxx].dt.push(data.expenses[prop]);
 		returnData[xxx].sum -= data.expenses[prop].amount;
 	}

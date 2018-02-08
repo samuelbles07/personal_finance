@@ -29,12 +29,13 @@
 
 
 ### Todos :
-  - Make documentation
   - Edit transaction
+  - Input type date not working on safari
   - Have to manual refresh transaction list & chart after input expenses/income/delete/edit
   - If delete a transaction. The sum off all transaction (panel) by that date not update
   - scroll down page not independent side
-  - List of category and delete feature
+  - List of category , edit and delete feature
+  - Input currency dot at input box
   - Setting currency
   - More deep data visualisation
 

@@ -1,5 +1,11 @@
+/**
+ * HANDLE ALL THE JAVASCRIPT FIRST RUN WHEN PAGE LOADED
+ */
 function startJS() {
 
+	/**
+	 * Set the current date to expenses and income input date
+	 */
 	currentDate(function(date) {
 		$('#inputDate1').val(date);
 		$('#inputDate2').val(date);
@@ -7,17 +13,17 @@ function startJS() {
 
 	/**
 	 * LOAD CATEGORY
+	 * append to expenses tab category input and
+	 * show specific expenses by category
 	 */
 
 	reqToServ("category", "GET", "", function(data) {
-		// For the expenses tab option category
 		var html = "";
 		for (var prop in data) {
 			html = html + "<option value='" + data[prop].category + "'>" + data[prop].category + "</option>";
 		}
-		$("#inputCategory1").append(html);
-		$("#categorySelect2").append(html);
-		// For the chart specific by category
+		$("#inputCategory1").append(html); // expenses
+		$("#categorySelect2").append(html); // specific chart
 	})
 
 	/**
@@ -27,7 +33,7 @@ function startJS() {
 
 
 	/**
-	 * STATS RESULT
+	 * STATS RESULT FIRST TIME LOAD
 	 */
 	specificChartLine(0, 0);
 	specificCharPie(0, 0);

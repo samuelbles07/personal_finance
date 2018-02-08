@@ -1,4 +1,15 @@
+// Month name array
 var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+/**
+ * Showing moneyChart by all income and expenses total money
+ * for every month
+ * - Make new chart object for expenses and income
+ * - Loop through all of it and stack it by month to "y" object
+ * - sum the old value to the new value for total value
+ * @param  {object} expenses expenses data object
+ * @param  {object} income   income data object
+ */
 var moneyChart = function(expenses, income) {
 	var expData = {
 		x: monthName,
@@ -42,6 +53,21 @@ var moneyChart = function(expenses, income) {
 	Plotly.newPlot('crtMoney', data, layout);
 }
 
+/**
+ * Showing expenses by category using line chart
+ * Filter expenses data by category
+ * and push it to to the value base on the month
+ * The filter is like expenses data lining up
+ * Check the first expenses, then
+ * if the category not registered yet to {tmp}
+ * 	then make the dumb object for that category
+ *  and sum the amount of expenses to {y} by month in that expenses dumb object
+ *  the make a new object to {tmp} by category name
+ * if yes it registered then
+ * 	sum the amount of expenses to {y} by that category object name
+ * after all data pushed to {tmp} then push all the object to [newData]
+ * @param  {object} expenses expenses data
+ */
 var categoryChartLine = function(expenses) {
 	var newData = [];
 
@@ -89,8 +115,19 @@ var categoryChartLine = function(expenses) {
 	Plotly.newPlot('crtCategoryLine', newData, layout);
 }
 
-var categoryCharPie = function(exp, listCategory) {
-	var expenses = exp;
+/**
+ * Show all category expenses to pie chart
+ * hmm the algorithm so ridiculous, first algorithm before the last one
+ * but not implemented in here yet
+ * It's just loop through the category data line up
+ * then push the category data
+ * then loop through all the expenses data that just the same as category data
+ * if found then delete that expenses data (decrease loop for next iteration i said lol)
+ * and so on and so one
+ * @param  {object} expenses          expenses data
+ * @param  {object} listCategory all category data
+ */
+var categoryCharPie = function(expenses, listCategory) {
 	var data = [{
 		values: [],
 		labels: [],
@@ -124,6 +161,14 @@ var categoryCharPie = function(exp, listCategory) {
 	Plotly.newPlot('crtCategoryPie', data, layout);
 }
 
+/**
+ * Showing expenses specific data to line chart
+ * All the concept just like the category line chart
+ * But first it check if the parameter filter value
+ * if not then the data become all 0
+ * @param  {object} expenses expenses object data
+ * @param  {text} by       	 category filter parameter
+ */
 var specificChartLine = function(expenses, by) {
 	var newData = [];
 	if (by === 0) {
@@ -177,6 +222,13 @@ var specificChartLine = function(expenses, by) {
 	Plotly.newPlot('crtSpecificLine', newData, layout);
 }
 
+/**
+ * Showing specific expenses to pie chart
+ * The concept is just the same but not by month, just sum all the expenses
+ * If the "by" value is 0 then pie chart not show (like the first load)
+ * @param  {object} expenses expenses object data
+ * @param  {text} by       	 category filter parameter
+ */
 var specificCharPie = function(expenses, by) {
 
 	var newData = [{

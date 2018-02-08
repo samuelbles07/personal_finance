@@ -2,6 +2,26 @@ function startEvent() {
 
 	/**
 	 * TRANSACTION TAB EVENT
+	 * Show all the transaction by month
+	 * overview:
+	 * - Empty all list at the main div
+	 * - Get all transaction data by month
+	 * - then the callback
+	 * - filter data to {sum, dt} (total amount value, the data)
+	 * - call append data function
+	 * - loop through all the data object
+	 * - append main panel by that date
+	 * - then loop through all data (dt) by that date  to child panel
+	 * - set the event for delete and edit for every child panel
+	 * - and so on
+	 * Every main panel has an unique id (listInc)
+	 * for child panel loop if the data have category object or not
+	 * if yes then it's expenses
+	 * if no then it's income, Set the from bank/pocket for income
+	 * edit and delete icon, have the same value for the class name and id for chile panel
+	 * so it can called by just 1 event call for edit and delete
+	 * the name value to check if it's edit/delete icon clicked
+	 * at the end of main panel loop, increment listInc
 	 */
 	$("#transactionSelect").change(function() {
 		$("#panelList").empty();
@@ -15,7 +35,6 @@ function startEvent() {
 		})
 
 		var appendData = function(data) {
-			// console.log(data);
 			var listInc = 1;
 			for (var key in data) {
 				// skip loop if the property is from prototype
@@ -23,7 +42,6 @@ function startEvent() {
 				var obj = data[key],
 					mainList = "",
 					memberList = "";
-				listInc++;
 				var newData = obj.dt;
 				if (newData[0] !== undefined) {
 					mainList = "<div class=\"panel panel-primary\"><div class=\"panel-heading\"><h3 class=\"panel-title pull-left\">" + newData[0].date + "</h3><h3 class=\"panel-title pull-right\">Rp " + currencyFormat(parseInt(obj.sum)) + "</h3><div class=\"clearfix\"></div></div><div class=\"list-group\" id='list" + listInc + "'></div></div>";
@@ -71,6 +89,7 @@ function startEvent() {
 						}
 					});
 				}
+				listInc++;
 			}
 		}
 
@@ -121,6 +140,9 @@ function startEvent() {
 		}
 	})
 
+	/**
+	 * suggestion value for expenses tab after pick category
+	 */
 	$("#inputCategory1").change(function() {
 		$("#suggestions").empty();
 		var data = {
@@ -136,7 +158,9 @@ function startEvent() {
 		})
 	})
 
-	//	Insert Expenses
+	/**
+	 * Insert expenses
+	 */
 	$("#expButton").click(function() {
 		var ctv = $("#inputCategory1").val();
 		var spcv = $("#inputSpec1").val();
@@ -169,9 +193,8 @@ function startEvent() {
 	})
 
 	/**
-	 * INCOME TAB
+	 * Insert income
 	 */
-
 	$("#incButton").click(function() {
 		var amov = $("#inputAmount2").val();
 		var spcv = $("#inputSpec2").val();
@@ -197,7 +220,7 @@ function startEvent() {
 	})
 
 	/**
-	 * CHART EVENT
+	 * category select event for Specific chart
 	 */
 	$("#categorySelect2").change(function() {
 		var by = this.value;

@@ -6,7 +6,6 @@
   <title>Personal Finance</title>
   <link rel="icon" href="4-512.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"> -->
 
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -14,6 +13,7 @@
 <body>
 
   <div class="row">
+    <!-- The tab menu in the left -->
     <div id="exTab1" class="col-md-5 left">
       <ul class="nav nav-pills">
         <li class="active">
@@ -28,7 +28,7 @@
       </ul>
       </br>
       <div class="tab-content clearfix">
-
+        <!-- Transaction list -->
         <div class="tab-pane active" id="1a">
           <div class="row">
             <div class="col-sm-7">
@@ -50,7 +50,6 @@
             </div>
           </div>
           </br>
-          <!-- *** LAST WORK *** -->
           <div class="row">
             <div class="col-sm-12">
               <div id="panelList">
@@ -60,7 +59,8 @@
             </div>
           </div>
         </div>
-
+        <!-- End of transaction list -->
+        <!-- expenses tab -->
         <div class="tab-pane" id="2a">
           <form class="form-horizontal">
             <div class="form-group">
@@ -120,7 +120,8 @@
             </div>
           </form>
         </div>
-
+        <!-- End of expenses tab -->
+        <!-- Income tab -->
         <div class="tab-pane" id="3a">
           <form class="form-horizontal">
             <div class="form-group">
@@ -160,12 +161,14 @@
             </div>
           </form>
         </div>
-
+        <!-- End of income tab -->
       </div>
     </div>
+    <!-- End of tab menu -->
 
-    <!-- Reports -->
+    <!-- Reports tab -->
     <div class="col-md-7 right">
+      <!-- Money report chart -->
       <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-complete">
@@ -184,6 +187,7 @@
         </div>
       </div>
       </br>
+      <!-- Expenses by category chart -->
       <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-complete">
@@ -205,6 +209,7 @@
         </div>
       </div>
       </br>
+      <!-- Expenses by specific chart -->
       <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-complete">
@@ -230,9 +235,9 @@
         </div>
       </div>
     </div>
-    <!-- </div> -->
+    <!-- end of chart side -->
 
-    <!-- Modal -->
+    <!-- Modal for new category -->
     <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
@@ -257,12 +262,14 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> -->
-
+    <!--
+                                          - serverReq
+    main <- customEvent <- customChart <-|
+                                          - custom
+    -->
     <script src="./custom.js"></script>
     <script src="./serverReq.js"></script>
     <script src="./customChart.js"></script>
@@ -270,7 +277,7 @@
     <script src="./main.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        startJS();
+        startJS(); // START THE JS!
       });
     </script>
 </body>

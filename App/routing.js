@@ -1,5 +1,7 @@
+/* Get db module object */
 const db = require('./db.js')
 
+/* Set all function as a module */
 module.exports = {
 	startRoute: function(app) {
 
@@ -22,11 +24,19 @@ module.exports = {
 			})
 
 			.put(function(req, res) {
-
+				/**
+				 * Add later
+				 * edit category name. All transaction with that category
+				 * edited too?
+				 */
 			})
 
 			.delete(function(req, res) {
-
+				/**
+				 * Add later
+				 * delete category name. All transaction with that category
+				 * deleted too?
+				 */
 			})
 
 		//------------------------------------------TRANSACTION---------------
@@ -42,7 +52,9 @@ module.exports = {
 				})
 			})
 			.put(function(req, res) {
-
+				/**
+				 * Add later
+				 */
 			})
 
 			.delete(function(req, res) {
