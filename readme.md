@@ -8,7 +8,7 @@
   - Show expenses by month and category through chart
   - Show specific expenses by month and category through chart
 
-### How to use for the first time:
+### How to use for the first time (with config):
   - If you don't have nodejs and npm install. Go download and install from  [Here](https://nodejs.org/)
   - Download this project
   - Save it to wherever you want in your local directory
