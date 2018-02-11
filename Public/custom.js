@@ -162,14 +162,14 @@ var filterByDate = function(data) {
 	for (var prop in data.income) {
 		var days = data.income[prop].date;
 		var nw = days.split('-');
-		var xxx = nw[2].slice(1);
+		var xxx = parseInt(nw[2])
 		returnData[xxx].dt.push(data.income[prop]);
 		returnData[xxx].sum += data.income[prop].amount;
 	}
 	for (var prop in data.expenses) {
 		var days = data.expenses[prop].date;
 		var nw = days.split('-');
-		var xxx = nw[2].slice(1);
+		var xxx = parseInt(nw[2])
 		returnData[xxx].dt.push(data.expenses[prop]);
 		returnData[xxx].sum -= data.expenses[prop].amount;
 	}

@@ -85,7 +85,7 @@ function startEvent() {
 						} else if (this.name === "edit") {
 							// var parentID = $(this).parents().eq(4).attr('id');
 							var parentID = "list" + listInc;
-							console.log(parentID);
+							// console.log(parentID);
 						}
 					});
 				}
@@ -149,7 +149,7 @@ function startEvent() {
 			category: this.value
 		}
 		reqToServ("specific", "GET", data, function(result) {
-			console.log(result)
+			// console.log(result)
 			var html = "";
 			for (var prop in result) {
 				html = html + "<option value='" + result[prop] + "'>";
