@@ -50,4 +50,9 @@ function startJS() {
 		})
 	})
 
+	reqToServ("money", "GET", "", function(result) {
+		$("#bankAccount").html("Rp " + currencyFormat(result.bank))
+		$("#pocketMoney").html("Rp " + currencyFormat(result.pocket))
+	})
+
 }

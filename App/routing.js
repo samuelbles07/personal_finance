@@ -69,5 +69,10 @@ module.exports = {
 			})
 		})
 		//--------------------------------------------
+		app.get('/money', function(req, res) {
+			db.getMoneyLeft(function(result) {
+				res.json(JSON.stringify(result))
+			})
+		})
 	}
 }

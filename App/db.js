@@ -215,5 +215,18 @@ module.exports = {
 			.uniq().value()
 
 		done(spcdata)
+	},
+
+	getMoneyLeft: function(done) {
+		const ba = db
+			.get('bank').value()
+		const pm = db
+			.get('pocket').value()
+
+		var data = {
+			bank: ba,
+			pocket: pm
+		}
+		done(data)
 	}
 }

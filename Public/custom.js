@@ -164,7 +164,9 @@ var filterByDate = function(data) {
 		var nw = days.split('-');
 		var xxx = parseInt(nw[2])
 		returnData[xxx].dt.push(data.income[prop]);
-		returnData[xxx].sum += data.income[prop].amount;
+		if (data.income[prop].specific !== "-") {
+			returnData[xxx].sum += data.income[prop].amount;
+		}
 	}
 	for (var prop in data.expenses) {
 		var days = data.expenses[prop].date;
